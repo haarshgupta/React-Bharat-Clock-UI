@@ -1,16 +1,24 @@
 function BharatTime() {
-let bharatDate = Date();
-let bharatTime = "10:38:17AM";
+  let bharatTime = "10:38:17AM";
 
-function PresentBharatDate(date){
-  const year =String( date.getFullYear());
-  const month =String(date.getMonth()+1).padStart(2,"0");
-  const date =String(date.getDate()).padStart(2,"0");
+  let presentDate = new Date();
+  function PresentBharatDate() {
+    console.log(presentDate);
+    console.log(presentDate.getTime());
+    const year = String(presentDate.getFullYear());
+    const month = String(presentDate.getMonth() + 1).padStart(2, "0");
+    const date = String(presentDate.getDate()).padStart(2, "0");
 
-  return '${year}/${month}/${date}'
-}
 
-  return <h2>This is the current time:{PresentBharatDate()}-{bharatTime}</h2>;
+    return `${year}/${month}/${date}`;
+  }
+
+  {/* for date toLocaleDateString(); */}
+  return (
+    <h2 className="lead fontContent">
+      This is the current time:{PresentBharatDate()} - {presentDate.toLocaleTimeString()}
+    </h2>
+  );
 }
 
 export default BharatTime;
